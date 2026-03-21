@@ -1,0 +1,124 @@
+body {
+  font-family: inherit;
+  margin: 0;
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* Dashboard Layout */
+.dashboard {
+  padding: 12px;
+}
+
+/* Header */
+.dashboard-header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dashboard-header p {
+  color: var(--text-muted);
+}
+
+/* Grid */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.responsive-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+  align-items: start; /* 🔥 FIX STRETCHING */
+}
+
+/* Glass Card */
+.card {
+  background: var(--glass-bg);
+  border-radius: 8px;
+  padding: 12px;
+  overflow: hidden; /* 🔥 PREVENT CHILD OVERFLOW */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* Transactions */
+.recent-transactions li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  transition: 0.2s;
+}
+
+.recent-transactions li:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateX(5px);
+}
+
+.negative {
+  color: var(--danger);
+}
+
+/* Buttons */
+.quick-actions button {
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  border: none;
+  padding: 8px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.quick-actions button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(99,102,241,0.4);
+}
+
+/* Chart */
+.chart-container {
+  width: 100%;
+  height: 200px;
+  min-height: 200px;
+  max-height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .responsive-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 14px;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
